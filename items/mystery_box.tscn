@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://yihb5lxaau54"]
+
+[ext_resource type="Script" path="res://items/mystery_box.gd" id="1_r2vxe"]
+[ext_resource type="Texture2D" uid="uid://cin5o3l50n4xo" path="res://art/question.png" id="2_ytedh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xg5t2"]
+size = Vector2(16, 16)
+
+[node name="MysteryBox" type="StaticBody2D"]
+script = ExtResource("1_r2vxe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ytedh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xg5t2")

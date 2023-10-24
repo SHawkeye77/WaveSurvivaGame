@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://st11rrpqwles"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_62b6h"]
+[ext_resource type="Texture2D" uid="uid://43kxch7wl4yf" path="res://art/slime.png" id="1_llnx2"]
+[ext_resource type="PackedScene" uid="uid://5ykig0sr214j" path="res://utility/hurt_box.tscn" id="3_xspxb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_288mc"]
+radius = 3.0
+height = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yjx20"]
+radius = 23.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7h0i"]
+size = Vector2(8, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4wcay"]
+radius = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5sa4b"]
+radius = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2u1pq"]
+bg_color = Color(0.597656, 0.894531, 0.3125, 1)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_62b6h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_llnx2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_288mc")
+
+[node name="InteractionRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRange"]
+shape = SubResource("CircleShape2D_yjx20")
+
+[node name="HurtBox" parent="." instance=ExtResource("3_xspxb")]
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_g7h0i")
+
+[node name="DisableHurtBoxTimer" parent="HurtBox" index="1"]
+wait_time = 0.25
+
+[node name="GrabArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
+shape = SubResource("CircleShape2D_4wcay")
+
+[node name="CollectArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
+shape = SubResource("CircleShape2D_5sa4b")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -16.0
+offset_top = 10.0
+offset_right = 17.0
+offset_bottom = 20.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_2u1pq")
+step = 1.0
+show_percentage = false
+
+[connection signal="body_entered" from="InteractionRange" to="." method="_on_interaction_range_body_entered"]
+[connection signal="body_exited" from="InteractionRange" to="." method="_on_interaction_range_body_exited"]
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+[connection signal="area_entered" from="GrabArea" to="." method="_on_grab_area_area_entered"]
+[connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]
+
+[editable path="HurtBox"]

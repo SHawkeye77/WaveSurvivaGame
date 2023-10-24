@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://st11rrpqwles"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_62b6h"]
+[ext_resource type="Texture2D" uid="uid://43kxch7wl4yf" path="res://art/slime.png" id="1_llnx2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_288mc"]
+radius = 5.0
+height = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yjx20"]
+radius = 23.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_62b6h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_llnx2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_288mc")
+
+[node name="InteractionRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRange"]
+shape = SubResource("CircleShape2D_yjx20")
+
+[node name="MysteryBoxWaitTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+
+[connection signal="body_entered" from="InteractionRange" to="." method="_on_interaction_range_body_entered"]
+[connection signal="body_exited" from="InteractionRange" to="." method="_on_interaction_range_body_exited"]
+[connection signal="timeout" from="MysteryBoxWaitTimer" to="." method="_on_mystery_box_wait_timer_timeout"]

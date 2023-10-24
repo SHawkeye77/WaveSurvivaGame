@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4pl2p0xo45ab"]
+
+[ext_resource type="Script" path="res://weapons/repeater.gd" id="1_srv86"]
+[ext_resource type="Texture2D" uid="uid://c1wddrocb3ka0" path="res://art/repeater.png" id="2_yrsnj"]
+
+[node name="Repeater" type="Node2D" groups=["gun"]]
+script = ExtResource("1_srv86")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_yrsnj")
+
+[node name="TimeBetweenCyclesTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="TimeBetweenShotsTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="timeout" from="TimeBetweenCyclesTimer" to="." method="_on_time_between_cycles_timer_timeout"]
+[connection signal="timeout" from="TimeBetweenShotsTimer" to="." method="_on_time_between_shots_timer_timeout"]

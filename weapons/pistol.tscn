@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://h38sxmnedtmi"]
+
+[ext_resource type="Script" path="res://weapons/pistol.gd" id="1_jcqey"]
+[ext_resource type="Texture2D" uid="uid://d04nyw1j70s85" path="res://art/pistol.png" id="1_ly4hb"]
+
+[node name="Pistol" type="Node2D" groups=["gun"]]
+script = ExtResource("1_jcqey")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ly4hb")
+
+[node name="PistolShotTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="PistolShotTimer" to="." method="_on_pistol_shot_timer_timeout"]

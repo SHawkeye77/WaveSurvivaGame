@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dre81hs7ug2am"]
+
+[ext_resource type="Script" path="res://weapons/shotgun.gd" id="1_6djs3"]
+[ext_resource type="Texture2D" uid="uid://cxtabl1wvu05h" path="res://art/shotgun.png" id="2_km3gj"]
+
+[node name="Shotgun" type="Node2D" groups=["gun"]]
+script = ExtResource("1_6djs3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_km3gj")
+
+[node name="ShotgunShotTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="ShotgunShotTimer" to="." method="_on_shotgun_shot_timer_timeout"]
