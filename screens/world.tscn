@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://screens/world.gd" id="1_tvq4d"]
 [ext_resource type="Texture2D" uid="uid://bc02pygjqfb7r" path="res://art/waveSurvivalTilemap.png" id="2_nusre"]
 [ext_resource type="PackedScene" uid="uid://st11rrpqwles" path="res://player.tscn" id="3_cok83"]
-[ext_resource type="PackedScene" uid="uid://h38sxmnedtmi" path="res://weapons/pistol.tscn" id="4_b1a5c"]
 [ext_resource type="AudioStream" uid="uid://bn0l1tptoe0f8" path="res://audio/enemy_death.wav" id="5_4dg4y"]
 [ext_resource type="AudioStream" uid="uid://c1bndpp7jrigf" path="res://audio/coin_collect.wav" id="5_7p8sf"]
+[ext_resource type="PackedScene" uid="uid://h38sxmnedtmi" path="res://weapons/pistol.tscn" id="5_ed7bs"]
 [ext_resource type="AudioStream" uid="uid://v4axghbtxut7" path="res://audio/gun_shot.wav" id="5_g3umo"]
 [ext_resource type="PackedScene" uid="uid://yihb5lxaau54" path="res://items/mystery_box.tscn" id="5_hlust"]
 [ext_resource type="PackedScene" uid="uid://bom2vnxpb8167" path="res://items/fire_rate_increase_box.tscn" id="6_3tdv3"]
@@ -73,7 +73,7 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 65537, 0, 0, 131073, 
 position = Vector2(640, 100)
 motion_mode = 1
 
-[node name="Pistol" parent="Player" instance=ExtResource("4_b1a5c")]
+[node name="Pistol" parent="Player" instance=ExtResource("5_ed7bs")]
 
 [node name="Bullets" type="Node2D" parent="."]
 

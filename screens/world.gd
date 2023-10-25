@@ -39,7 +39,7 @@ func _ready():
 
 func updateUI():
 	labelMoney.text = "$" + str(player.money)
-	labelWave.text = "Wave " + str(wavesSpawner.currentWave)
+	labelWave.text = "Wave " + str(wavesSpawner.currentWaveIndex)
 
 func notifyPlayer(notificationText):
 	panelNotification.visible = true
@@ -118,7 +118,7 @@ func _on_button_buy_bullet_amount_increase_box_pressed():
 
 func endGame():
 	# Setting up end screen data
-	Global.finalWave = wavesSpawner.currentWave
+	Global.finalWave = wavesSpawner.currentWaveIndex
 	Global.finalCurrencyAmount = player.money
 	Global.totalNumberWaves = len(wavesSpawner.WAVES)
 	# Loading the end game screen

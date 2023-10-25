@@ -10,31 +10,31 @@ const ENEMY_COMPUTE_PATH_FREQUENCY = 0.2
 
 # Enemy 1
 const ENEMY_1_SPEED = 90
-const ENEMY_1_STARTING_HP = 20
+const ENEMY_1_STARTING_HP = 5
 const ENEMY_1_DAMAGE = 5
 const ENEMY_1_COIN_VALUE = 1
 
 # Enemy 2
 const ENEMY_2_SPEED = 70
-const ENEMY_2_STARTING_HP = 50
+const ENEMY_2_STARTING_HP = 10
 const ENEMY_2_DAMAGE = 20
 const ENEMY_2_COIN_VALUE = 5
 
 # Enemy 3
 const ENEMY_3_SPEED = 50
-const ENEMY_3_STARTING_HP = 80
+const ENEMY_3_STARTING_HP = 20
 const ENEMY_3_DAMAGE = 50
-const ENEMY_3_COIN_VALUE = 10
+const ENEMY_3_COIN_VALUE = 7
 
 # Mystery Box
-const MYSTERY_BOX_WAIT_TIME = 4.75
-const MYSTERY_BOX_PRICE = 5
+const MYSTERY_BOX_WAIT_TIME = 4.75  # Don't change this, it lines up with the length of the associated audio
+const MYSTERY_BOX_PRICE = 200
 
 # Fire rate increase box
-const FIRE_RATE_INCREASE_BOX_PRICE = 10
+const FIRE_RATE_INCREASE_BOX_PRICE = 200
 
 # Bullet amount increase box
-const BULLET_AMOUNT_INCREASE_BOX_PRICE = 10
+const BULLET_AMOUNT_INCREASE_BOX_PRICE = 200
 
 # Bullet
 const BULLET = preload("res://weapons/bullet.tscn")

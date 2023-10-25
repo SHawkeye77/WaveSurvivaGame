@@ -35,7 +35,7 @@ func _on_remake_path_timer_timeout():
 
 func death():
 	world.playEnemyDeath()
-	wavesSpawner.enemyDied()
+	wavesSpawner.enemyDied(self)
 	# Spawning the coin
 	var newCoin = coin.instantiate()
 	newCoin.global_position = global_position

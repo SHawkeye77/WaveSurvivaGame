@@ -12,7 +12,7 @@ var startScreen = "res://screens/start_screen.tscn"
 func _ready():
 	finalCurrencyAmountLabel.text = "Final currency amount: " + str(Global.finalCurrencyAmount)
 	# Game won
-	if Global.finalWave == (Global.totalNumberWaves - 1):
+	if Global.finalWave == (Global.totalNumberWaves):
 		finalWaveDisplayLabel.text = "You won! Final wave reached: " + str(Global.finalWave)
 	# Game lost
 	else:
